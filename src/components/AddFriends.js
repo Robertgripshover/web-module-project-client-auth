@@ -35,8 +35,6 @@ const submitFriendForm = (e) => {
       })
 }
 
-console.log(formData)
-
     return(
       <div>
         <h2>Add Friend</h2>
