@@ -24,11 +24,10 @@ const AddFriend = () => {
 
 const submitFriendForm = (e) => {
   e.preventDefault()
-  console.log('Clicked :)')
-  axios.post(`http://localhost:9000/api/friends`, formData)
+  const token = localStorage.getItem('token')
+    axios.post(`http://localhost:9000/api/friends`, formData, {headers: {authorization: token}})
       .then(resp => {
           console.log(resp)
-          localStorage.setItem('token', resp.data.token)
           push('/friends')
       })
       .catch(err => {
